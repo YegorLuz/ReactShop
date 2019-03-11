@@ -1,0 +1,28 @@
+.slider {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+
+    .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &-left {
+            left: 0;
+        }
+
+        &-right {
+            right: 0;
+        }
+    }
+}
+
+.slides {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    list-style: none;
+}
