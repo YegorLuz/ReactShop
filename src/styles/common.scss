@@ -8,6 +8,10 @@
     font-family: 'Roboto Slab', serif;
 }
 
+p {
+    margin-bottom: 15px;
+}
+
 #header, #footer, #body {
     width: 100%;
 }
@@ -17,12 +21,12 @@
 }
 
 .wrapper {
-    padding: 20px 15px;
+    padding: 20px 0;
 }
 
 .container {
     width: 100%;
-    max-width: 1170px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -45,4 +49,31 @@
     font-weight: 700;
     color: $dark-blue;
     padding: 15px 0;
+}
+
+.main-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+
+    img {
+        width: 60%;
+    }
+}
+
+.full-width {
+    width: 100%;
+}
+
+.block {
+    background: $white;
+    box-shadow: -1px 1px 5px 0 rgba(0,0,0,0.25);
+    margin-bottom: 50px;
+    padding: 15px 15px 0;
+}
+
+.about {
+    padding: 20px 15px;
+    font-size: 16px;
 }

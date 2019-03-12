@@ -82,7 +82,8 @@
             }
         }
 
-        &:hover {
+        &:hover,
+        &.active {
             .menu-item-link {
                 color: $blue;
 
@@ -131,7 +132,8 @@
             }
         }
 
-        &:hover {
+        &:hover,
+        &.active {
             .menu-item-link {
                 color: $blue;
             }

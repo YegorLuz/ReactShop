@@ -15,8 +15,9 @@ class Menu extends React.Component<IProps> {
 
     renderItems () {
         const { data, animation } = this.props;
+        const pathName = window.location.pathname || '/';
 
-        return data.map((item: IMenuItemData) => <MenuItem key={item.component} animation={animation} {...item} />);
+        return data.map((item: IMenuItemData) => <MenuItem key={item.component} isActive={pathName === item.url} animation={animation} {...item} />);
     }
 
     render () {

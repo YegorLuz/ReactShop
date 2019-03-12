@@ -15,7 +15,7 @@ const LoadableComponent = (path: string) => Loadable({
 });
 
 const renderRoute = (item: IMenuItemData) =>
-	<Route key={item.component} path={item.url} exact component={LoadableComponent(item.component)} />;
+	<Route key={item.component} path={item.routePath || item.url} exact component={LoadableComponent(item.component)} />;
 
 export default (
 	<BrowserRouter>
