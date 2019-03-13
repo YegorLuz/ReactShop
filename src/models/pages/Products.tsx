@@ -1,4 +1,5 @@
 import { List, Map } from 'immutable';
+import { IProduct } from '../data/immutable';
 import { RouteChildrenProps } from 'react-router';
 
 interface IParams {
@@ -6,7 +7,7 @@ interface IParams {
 }
 
 export interface IProps extends RouteChildrenProps<IParams> {
-    products: List<Map<string, any>>,
+    products: List<IProduct>,
     getProducts?: () => void,
 }
 
@@ -16,4 +17,6 @@ export interface IStore {
 
 export interface IState {
     cat: number | null,
+    color: string,
+    size: string,
 }

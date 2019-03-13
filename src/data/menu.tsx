@@ -5,6 +5,7 @@ export interface IMenuItemData extends IMenuItem {
     url: string,
     text: string,
     routePath?: string,
+    urls?: Array<string>,
 }
 
 export interface IMenuData extends Array<IMenuItemData> {};
@@ -24,6 +25,7 @@ const menu : IMenuData = [
         component: 'Products',
         routePath: '/catalog/:id?',
         url: '/catalog',
+        urls: ['/catalog', '/product'],
         text: 'Catalog',
     },
     {

@@ -60,6 +60,10 @@ p {
     img {
         width: 60%;
     }
+
+    &:not(.large) img {
+        width: 40%;
+    }
 }
 
 .full-width {

@@ -6,11 +6,13 @@ const Contacts = () => (
     <div className='wrapper'>
         <header className='page-title'>Contacts</header>
         <div className='contacts'>
-            {contacts.map((item: IContact) => <div className='contact'>
-                <div className='location'>{item.location}</div>
-                <div className='address'>{item.address}</div>
-                <div className='cell'>{item.cell}</div>
-                <div className='time'>{item.time}</div>
+            {contacts.map((item: IContact, index: number) => <div key={index} className='contact'>
+                <div>
+                    <div className='location'>{item.location}</div>
+                    <div className='address'>{item.address}</div>
+                    <div className='cell'>{item.cell}</div>
+                    <div className='time'>{item.time}</div>
+                </div>
             </div>)}
         </div>
     </div>

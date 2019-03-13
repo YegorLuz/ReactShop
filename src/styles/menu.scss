@@ -30,6 +30,8 @@
 
 .menu {
     & &-item {
+        transition: 100ms border-color linear 100ms;
+
         &:last-child {
             border-right: 2px solid $white;
         }
@@ -96,6 +98,14 @@
                 background: $white;
             }
         }
+
+        &:hover + .active {
+            border-left-color: $blue;
+        }
+
+        &.active + .menu-item:hover {
+            border-left-color: $blue;
+        }
     }
 }
 
@@ -103,6 +113,8 @@
     height: 50px;
 
     .menu-item {
+        transition: 100ms border-color linear 100ms;
+
         &:first-child {
             border-left: none;
         }
@@ -141,6 +153,14 @@
             .link-arrow-bg div {
                 left: 50px;
             }
+        }
+
+        &:hover + .active {
+            border-left-color: $blue;
+        }
+
+        &.active + .menu-item:hover {
+            border-left-color: $blue;
         }
     }
 }

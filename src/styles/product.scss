@@ -11,8 +11,15 @@
         justify-content: space-between;
         text-decoration: none;
         color: $dark-gray;
+        background-color: $white;
         padding: 5px 10px;
-        box-shadow: -1px 2px 5px 0 rgba(0,0,0,0.25);
+        box-shadow: -1px 1px 3px 0 rgba(0,0,0,0.25);
+        transition: 150ms all linear;
+
+        &:hover {
+            box-shadow: -1px 2px 5px 0 rgba(0, 85, 130, 0.5);
+            background-color: #f2faff;
+        }
     }
 
     &-image {
@@ -66,9 +73,19 @@
     }
 
     .categories {
+        align-self: flex-start;
         min-width: 280px;
-        box-shadow: -1px 2px 5px 0 rgba(0,0,0,0.25);
-        padding: 0 15px;
+        box-shadow: -1px 2px 5px 0 rgba(0, 85, 130, 0.5);
+
+        .filter-block {
+            border-bottom: 2px solid $dark-blue;
+            padding: 0 15px;
+
+            &:not(.no-padding) {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+        }
 
         h3 {
             padding: 10px 15px;
@@ -81,20 +98,142 @@
     }
 
     .category-item {
-        border-bottom: 1px solid #333;
         cursor: pointer;
+        position: relative;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $blue;
+        }
 
         a {
             display: block;
             text-decoration: none;
             color: $dark-blue;
             padding: 8px 12px;
+            z-index: 2;
+            position: relative;
+            transition: 150ms color ease-out 50ms;
+        }
+
+        .bg {
+            width: 0;
+            height: 100%;
+            background-color: $blue;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        &:not(.active) .bg {
+            animation: goBack 300ms 0s forwards;
+        }
+
+        &.active {
+            .bg {
+                width: 100%;
+            }
+
+            a {
+                color: $white;
+            }
+        }
+    
+        &:hover {
+            .bg {
+                animation: easeOutBounce 1s 0s forwards;
+            }
+
+            a {
+                color: $white;
+            }
+        }
+
+        @keyframes goBack {
+            0% {width: 100%; -webkit-animation-timing-function: ease-out;}
+            100% {width: 0%; -webkit-animation-timing-function: ease-out;}
+        }
+    
+        @keyframes easeOutBounce {
+            0% {width: 20%; -webkit-animation-timing-function: ease-in;}
+            33% {width: 100%; -webkit-animation-timing-function: ease-out;}
+            50% {width: 82%; -webkit-animation-timing-function: ease-in;}
+            66% {width: 100%; -webkit-animation-timing-function: ease-out;}
+            82% {width: 97%; -webkit-animation-timing-function: ease-in;}
+            92% {width: 100%; -webkit-animation-timing-function: ease-out;}
+            97% {width: 99%; -webkit-animation-timing-function: ease-in;}
+            100% { width: 100%;}
         }
     }
 
     .product-list {
-        display: flex;
         flex-grow: 1;
         flex-wrap: wrap;
+    }
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+
+    &-item {
+        padding: 8px 12px 8px 30px;
+        position: relative;
+        cursor: pointer;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $blue;
+        }
+
+        &:before, &:after {
+            position: absolute;
+        }
+
+        &:before {
+            content: "";
+            top: 12px;
+            left: 0;
+            width: 14px;
+            height: 14px;
+            background: #f0f0f0;
+            border: 1px solid $dark-blue;
+            border-radius: 3px;
+        }
+
+        &.active:before {
+            background: #fff;
+        }
+
+        &.active:after {
+            content: "\02713";
+            top: 8px;
+            left: 1px;
+            color: #00ff00;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 16px;
+        }
+    }
+}
+
+.params {
+    padding-bottom: 10px;
+    list-style: none;
+
+    .color {
+        div {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 1px solid $dark-blue;
+            margin-left: 5px;
+        }
+    }
+}
+
+.description,
+.parameters {
+    h3 {
+        padding: 15px 0;
     }
 }

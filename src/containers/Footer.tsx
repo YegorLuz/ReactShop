@@ -19,14 +19,14 @@ class Footer extends React.Component {
                 <div className='container'>
                     <div className='row between center-items'>
                         <div className='copyrights'>
-                            {strings.copyrights}
+                            {strings.get('copyrights')}
                         </div>
                         <Menu className='footer-menu' animation={Footer.renderAnimation()} data={menu} />
                         <div className='logo'>
                             <Link to='/'>
                                 <img src={logo} alt='Logo' />
                             </Link>
-                            <div className='text'>{strings.logoText}</div>
+                            <div className='text'>{strings.get('logoText')}</div>
                         </div>
                     </div>
                 </div>

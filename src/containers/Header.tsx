@@ -22,7 +22,7 @@ class Header extends React.Component {
                             <Link to='/'>
                                 <img src={logo} alt='Logo' />
                             </Link>
-                            <span>{strings.logoText}</span>
+                            <span>{strings.get('logoText')}</span>
                         </div>
                         <Menu data={menu} animation={Header.renderAnimation()} />
                     </div>

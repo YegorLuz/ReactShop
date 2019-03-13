@@ -16,8 +16,16 @@ class Menu extends React.Component<IProps> {
     renderItems () {
         const { data, animation } = this.props;
         const pathName = window.location.pathname || '/';
+        const firstPathPart = '/' + pathName.split('/')[1];
 
-        return data.map((item: IMenuItemData) => <MenuItem key={item.component} isActive={pathName === item.url} animation={animation} {...item} />);
+        return data.map((item: IMenuItemData) =>
+            <MenuItem
+                key={item.component}
+                {...item}
+                isActive={item.urls ? item.urls.indexOf(firstPathPart) >= 0 : firstPathPart === item.url}
+                animation={animation}
+            />
+        );
     }
 
     render () {
